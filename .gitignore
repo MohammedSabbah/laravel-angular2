@@ -16,5 +16,6 @@ public/typings/
 
 # but leave the specific JS files of the public/js/ folder
 !public/*.js
+!public/js/*.js
 !public/js/*.json
 
