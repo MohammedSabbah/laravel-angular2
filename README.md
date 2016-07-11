@@ -16,7 +16,14 @@ To run the project you just have to do:
     npm run typings install
     ./node_modules/typescript/bin/tsc
     
+    # Get a fresh .env file and generate the application key
+    php artisan key:generate
+    
     # Serve the application
-    composer -S localhost:8000
+    php -S localhost:8000
 
-And the app will run in your localhost, port 8000
+And the app will run in your localhost, port 8000. If you have any permission issues try changing the storage/ folder permisisons
+
+    php artisan cache:clear
+    sudo chmod 777 -R storage
+    composer dump-autoload
