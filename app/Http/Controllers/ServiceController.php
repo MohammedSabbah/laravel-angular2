@@ -38,8 +38,12 @@ class ServiceController extends Controller
     	return json_encode($this->escortsRepository->getRandom(10));
     }
 
-    public function getEscortsByArea($area = 1, $ageMin = null, $ageMax = null) {
-    	return json_encode($this->escortsRepository->getByArea($area, $ageMin, $ageMax));
+    public function getEscortsByRegion($region = 1, $ageMin = null, $ageMax = null) {
+    	return json_encode($this->escortsRepository->getByRegion($region, $ageMin, $ageMax));
+    }
+
+    public function getEscort($esc_id = 1) {
+        return json_encode($this->escortsRepository->getById($esc_id));
     }
 
     // --------------------------------

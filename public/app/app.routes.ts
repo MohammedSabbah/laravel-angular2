@@ -1,13 +1,15 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 import { IndexComponent }               from './components/index.component';
 import { ProfileViewComponent }         from './components/profile-view.component';
+import { RegionViewComponent }          from './components/region-view.component';
 
 // The RouterConfig is an array of routes that describe how to navigate.
 // Each route maps a URL path to a component
 // There are no leading slashes in our path
 export const routes: RouterConfig = [
     { path: '', component: IndexComponent },
-    { path: '/profile/:id', component: ProfileViewComponent }
+    { path: 'profile/:id', component: ProfileViewComponent },
+    { path: 'region/:id' , component: RegionViewComponent}
 ];
 
 // To bootstrap our application routes we have to use the provideRouter function

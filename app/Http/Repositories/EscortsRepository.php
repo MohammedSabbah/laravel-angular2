@@ -25,16 +25,16 @@ class EscortsRepository
     }
 
     /**
-     * Returns a list of escorts filtered by area and/or age
+     * Returns a list of escorts filtered by region and/or age
 	 *
-	 *	@param 	int 		$area 		ID of the target area
+	 *	@param 	int 		$region     ID of the target region
 	 * 	@param 	int|null 	$ageMin 	Lower boundary for age to filter by
 	 * 	@param 	int|null 	$ageMax 	Upper boundary for age to filter by
      */
-    public function getByArea($area = 1, $ageMin = null, $ageMax = null)
+    public function getByRegion($region = 1, $ageMin = null, $ageMax = null)
     {
-    	$escorts = $this->escorts->select()
-    							 ->where('esc_subcats', 'LIKE', '|' . sprintf($area, '%i') . '|');
+    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img')
+    							 ->where('esc_subcats', 'LIKE', '|' . sprintf($region, '%i') . '|');
 
     	if(!is_null($ageMin) && !is_null($ageMax)) {
 
@@ -42,6 +42,15 @@ class EscortsRepository
     						   ->where('esc_age', '<', $ageMax);
     	}
 
-    	return $escorts->get();
+    	return $escorts->orderByRaw('RAND()')->get();
+    }
+
+    /**
+     * Retrieves an escort by it's ID
+     *
+     * @param int $esc_id Primary key of the escorts table
+     */
+    public function getById($esc_id) {
+        return $this->escorts->where('esc_id', $esc_id)->first();
     }
 }
