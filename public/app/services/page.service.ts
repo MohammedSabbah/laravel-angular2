@@ -6,14 +6,20 @@ import {BaseService} from './BaseService';
 import 'rxjs/Rx';
 
 @Injectable()
-export class ProfileService extends BaseService{
+export class PageService extends BaseService{
     
     constructor(private _http: Http) {
         super();
     }
-
-    getProfiles() {
-        return this._http.get('/api/services/profiles')
+    
+    getTitles() {
+        return this._http.get('/api/services/page-titles')
+                         .map(res => res.json())
+                         .catch(this.handleError);
+    }
+    
+    getContent() {
+        return this._http.get('/api/services/pages')
                          .map(res => res.json())
                          .catch(this.handleError);
     }
