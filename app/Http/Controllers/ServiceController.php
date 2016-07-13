@@ -42,8 +42,12 @@ class ServiceController extends Controller
     	return json_encode($this->regionsRepository->getRegions());
     }
 
-    public function getPages() {
-    	return json_encode($this->pagesRepository->getPages());
+    public function getPage($page_id = 1) {
+    	return json_encode($this->pagesRepository->getPage($page_id));
+    }
+
+    public function getPageTitles() {
+        return json_encode($this->pagesRepository->getTitles());
     }
 
     public function getSubcategories() {
