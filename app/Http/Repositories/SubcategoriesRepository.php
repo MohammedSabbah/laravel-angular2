@@ -13,12 +13,22 @@ class SubcategoriesRepository
     }
 
     /**
-     * Gets a random number of escorts limited by $limit
+     * Gets a subcategory based on it's ID
      *
-     * 	@param int|null $limit 	Defines how many results we get
+     * 	@param int $sc_id 	ID of the subcategory to retrieve
      */
-    public function getSubcategories()
+    public function getSubcategory($sc_id = 1)
     {
-    	return $this->subcategories->orderBy('sc_order')->get();
+    	return $this->subcategories->where('sc_id', $sc_id)
+                                   ->get();
+    }
+
+    /**
+     * Get subcategory titles and ids
+     */
+    public function getTitles() {
+        return $this->subcategories->select('sc_id', 'sc_title', 'sc_link')
+                                   ->orderBy('sc_order')
+                                   ->get();
     }
 }
