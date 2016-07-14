@@ -1,4 +1,4 @@
-import { Component, ngOnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SubcategoryService } from '../services/subcategory.service';
