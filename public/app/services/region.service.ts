@@ -18,4 +18,10 @@ export class RegionService extends BaseService{
                    .map(res => res.json())
                    .catch(this.handleError);
     }
+    
+    getRegion(id: number) {
+        return this._http.get('/api/services/region/' + id)
+                         .map(res => res.json())
+                         .catch(this.handleError);
+    }
 }

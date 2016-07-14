@@ -4,9 +4,11 @@
     </div>
     
     <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let thumbnail of thumbnails">
+        <p>{{ thumbnail.esc_title }} ({{ thumbnail.esc_age }}yo)</p>
         <a class="thumbnail" [routerLink]="['/profile', thumbnail.esc_id]">
             <img class="img-responsive" src="http://placehold.it/400x300" alt="">
         </a>
+        <!--
         <div style="width: 88%;
                     height: 88%;
                     position:absolute;
@@ -14,7 +16,7 @@
                     z-index: 100;
                     text-align:center;
                     padding-top: 33%">
-                    <p>{{ thumbnail.esc_title }}</p>
                     </div>
+         -->
     </div>
 </div>

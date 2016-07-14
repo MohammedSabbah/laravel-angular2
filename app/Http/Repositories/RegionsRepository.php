@@ -23,4 +23,14 @@ class RegionsRepository
                              ->orderBy('region_order')
                              ->get();
     }
+
+    /**
+     * Returns the details of a single region
+     *
+     * @param int $region_id    ID of the target region
+     */
+    public function getRegion($region_id = 1) {
+        return $this->regions->where('region_id', $region_id)
+                             ->get();
+    }
 }

@@ -53,6 +53,10 @@ class ServiceController extends Controller
     	return json_encode($this->regionsRepository->getRegions());
     }
 
+    public function getRegion($region_id = 1) {
+        return json_encode($this->regionsRepository->getRegion($region_id));
+    }
+
     // --------------------------------
     // Pages
     // --------------------------------

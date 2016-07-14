@@ -33,7 +33,7 @@ class EscortsRepository
      */
     public function getByRegion($region = 1, $ageMin = null, $ageMax = null)
     {
-    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img')
+    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age')
     							 ->where('esc_subcats', 'LIKE', '|' . sprintf($region, '%i') . '|');
 
     	if(!is_null($ageMin) && !is_null($ageMax)) {
