@@ -19,7 +19,7 @@ export class SubcategoryService extends BaseService{
                          .catch(this.handleError);
     }
     
-    getSubject(subcategoryId: number) {
+    getSubcategory(subcategoryId: number) {
         return this._http.get('/api/services/subcategory/' + subcategoryId)
                          .map(res => res.json())
                          .catch(this.handleError);
