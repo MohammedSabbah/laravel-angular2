@@ -28,6 +28,6 @@ class SubjectsRepository
     public function getSubject($subject_id = 1)
     {
         return $this->subjects->where('subject_id', $subject_id)
-                              ->get();
+                              ->first();
     }
 }

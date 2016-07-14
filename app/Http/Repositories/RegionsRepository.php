@@ -31,6 +31,6 @@ class RegionsRepository
      */
     public function getRegion($region_id = 1) {
         return $this->regions->where('region_id', $region_id)
-                             ->get();
+                             ->first();
     }
 }

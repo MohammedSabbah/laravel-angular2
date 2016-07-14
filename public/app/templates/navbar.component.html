@@ -47,7 +47,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let region of regions">
-                            <a href="/region/{{ region.region_id }}">{{ region.region_name }}</a>
+                            <a [routerLink]="['/region', region.region_id]">{{ region.region_name }}</a>
                         </li>
                     </ul>
                 </li>
