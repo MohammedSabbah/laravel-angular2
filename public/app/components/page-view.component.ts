@@ -28,7 +28,7 @@ export class PageViewComponent {
                              .subscribe(
                                  page  => this.page = page,
                                  error => this.errorMessage = <any>error
-                             )
+                             );
         });
     }
 }
