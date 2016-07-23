@@ -42,6 +42,10 @@ class ServiceController extends Controller
     	return json_encode($this->escortsRepository->getByRegion($region, $ageMin, $ageMax));
     }
 
+    public function getEscortsBySubcategory($sc_id = 1) {
+        return(json_encode($this->escortsRepository->getBySubcategory($sc_id)));
+    }
+
     public function getEscort($esc_id = 1) {
         return json_encode($this->escortsRepository->getById($esc_id));
     }
@@ -74,7 +78,7 @@ class ServiceController extends Controller
     // --------------------------------
 
     public function getSubcategory($sc_id = null) {
-    	return json_encode($this->subcategoriesRepository->getSubcategory($sc_id));
+    	return json_encode($this->subcategoriesRepository->getSubcategory($sc_id)->first());
     }
 
     public function getSubcategoryTitles() {

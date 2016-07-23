@@ -20,7 +20,7 @@ export class SubjectService extends BaseService{
     }
     
     getSubject(subjectId: number) {
-        return this._http.get('/api/services/subjects/' + subjectId)
+        return this._http.get('/api/services/subject/' + subjectId)
                          .map(res => res.json())
                          .catch(this.handleError);
     }

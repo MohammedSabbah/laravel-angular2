@@ -32,6 +32,6 @@ class PagesRepository
     	return $this->pages->where('page_active', 1)
                            ->where('page_gay', 0)
                            ->where('page_id', $page_id)
-                           ->get();
+                           ->first();
     }
 }

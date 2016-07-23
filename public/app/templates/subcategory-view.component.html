@@ -1,0 +1,25 @@
+<div [innerHTML]="subcategory?.sc_text">
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Newly added profiles</h1>
+    </div>
+    
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let thumbnail of thumbnails">
+        <p>{{ thumbnail?.esc_title }} ({{ thumbnail?.esc_age }}yo)</p>
+        <a class="thumbnail" [routerLink]="['/profile', thumbnail?.esc_id]">
+            <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+        </a>
+        <!--
+        <div style="width: 88%;
+                    height: 88%;
+                    position:absolute;
+                    background-color: rgba(0,0,0,0.5);
+                    z-index: 100;
+                    text-align:center;
+                    padding-top: 33%">
+                    </div>
+         -->
+    </div>
+</div>
