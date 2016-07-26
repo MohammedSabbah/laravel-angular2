@@ -45,7 +45,13 @@ class EscortsRepository
     	return $escorts->orderByRaw('RAND()')->get();
     }
 
-    public function getBySubcategory($sc_id = 1) {
+    /**
+     * Retrieves the list of profiles in a specific subcategory
+     * 
+     * @param  integer $sc_id ID of the subcategory to display
+     */
+    public function getBySubcategory($sc_id = 1) 
+    {
         return $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age')
                              ->where('esc_status', $sc_id)
                              ->get();
