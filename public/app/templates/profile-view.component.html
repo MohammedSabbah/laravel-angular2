@@ -1,1 +1,34 @@
-{{ profileId }}
+<img src="/profiles/{{ profile?.esc_img }}" 
+     alt="obbanna-divorced-women-looking-for-sex-oxfordshire-buckinghamshire-berkshire" 
+     title="Click to enlarge" 
+     align="right" 
+     width="150" 
+     class="img">
+
+<h1>Contact {{ profile?.esc_title }} from {{ region?.region_name }}</h1>
+
+<p>Profile name: {{ profile?.esc_title }}</p>
+
+<p>Age: {{ profile?.esc_age }}</p>
+
+<p>Have photos?: Yes</p>
+
+<p>Hair: {{ profile?.esc_hair }}</p>
+
+<p>Eyes: {{ profile?.esc_eyes }}</p>
+
+<p>Description:</p>
+<p [innerHTML]="profile?.esc_bio"></p>
+
+<hr>
+
+<h1 align="center">To contact {{ profile?.esc_title }} use your mobile telephone and text the word: </h1>
+<h2 align='center'>{{ profile?.esc_code }}</h2>
+<h1 align='center'>to</h1>
+<h2 align='center'>{{ profile?.esc_phone }}</h2>
+<!--
+<h2 align='center'>89922</h2>
+-->
+<p class='terms'>
+{{ terms }}
+</p>

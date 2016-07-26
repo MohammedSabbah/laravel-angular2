@@ -38,4 +38,16 @@ export class ProfileService extends BaseService{
                          .map(res => res.json())
                          .catch(this.handleError);
     }
+
+    /**
+     * Returns all profiles in a specific subcategory
+     * 
+     * @param   number  subcategoryId    The id of the subcategory to display
+     * @return  returns an array of `Thumbnails`
+     */
+    getProfilesBySubcategory(subcategoryId: number) {
+        return this._http.get('/api/services/escorts-by-subcategory/' + subcategoryId)
+                         .map(res => res.json())
+                         .catch(this.handleError);
+    }
 }

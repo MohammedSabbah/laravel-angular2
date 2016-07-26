@@ -27,7 +27,13 @@ class SubjectsRepository
      */
     public function getSubject($subject_id = 1)
     {
-        return $this->subjects->where('subject_id', $subject_id)
-                              ->first();
+        $subject = $this->subjects->where('subject_id', $subject_id)
+                                  ->first();
+
+        if($subject->subject_desc != "") {
+            $subject->subject_desc = file_get_contents(app_path('Http/Includes/Subjects/') . $subject->subject_desc);
+            return $subject;
+        }
+        return false;
     }
 }

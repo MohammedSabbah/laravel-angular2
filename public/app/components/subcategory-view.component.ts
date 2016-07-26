@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { SubcategoryService } from '../services/subcategory.service';
 import { Subcategory }        from '../models/Subcategory';
 
+import { ProfileService }     from '../services/profile.service';
+import { Thumbnail }          from '../models/Thumbnail';
+
 @Component({
     selector: 'subcategory-view',
     templateUrl: '/app/templates/subcategory-view.component.html',
-    providers: [SubcategoryService]
+    providers: [SubcategoryService, ProfileService],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class SubcategoryViewComponent {
@@ -15,9 +19,11 @@ export class SubcategoryViewComponent {
     subcategoryId: number = 1;
     subcategory: Subcategory;
     errorMessage: any;
+    thumbnails: Array<Thumbnail>;
     
     constructor(private _router: ActivatedRoute,
-                private _subcategoryService: SubcategoryService) {
+                private _subcategoryService: SubcategoryService,
+                private _profileService: ProfileService) {
                     
     }
     
@@ -28,7 +34,12 @@ export class SubcategoryViewComponent {
                                     .subscribe(
                                         subcategory => this.subcategory = subcategory,
                                         error       => this.errorMessage = <any>error
-                                    ) 
+                                    );
+            this._profileService.getProfilesBySubcategory(this.subcategoryId)
+                                .subscribe(
+                                    thumbnails => this.thumbnails = thumbnails,
+                                    error    => this.errorMessage = <any>error
+                                );
         });
     }
     

@@ -18,28 +18,28 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sections <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="blog-home-1.html">How it works</a>
+                            <a [routerLink]="['/page/24']">How it works</a>
                         </li>
                         <li>
-                            <a href="blog-home-2.html">FAQ</a>
+                            <a [routerLink]="['/page/23']">FAQ</a>
                         </li>
                         <li>
-                            <a href="blog-post.html">Photographers</a>
+                            <a [routerLink]="['/page/22']">Photographers</a>
                         </li>
                         <li>
-                            <a href="blog-post.html">Testimonials</a>
+                            <a [routerLink]="['/page/21']">Testimonials</a>
                         </li>
                         <li>
-                            <a href="blog-post.html">How to join?</a>
+                            <a [routerLink]="['/page/20']">How to join?</a>
                         </li>
                         <li>
-                            <a href="blog-post.html">Sex contact magazines</a>
+                            <a [routerLink]="['/page/18']">Sex contact magazines</a>
                         </li>
                         <li>
                             <a href="blog-post.html">Blog</a>
                         </li>
                         <li>
-                            <a href="blog-post.html">Terms</a>
+                            <a [routerLink]="['/page/25']">Terms</a>
                         </li>
                     </ul>
                 </li>
@@ -47,7 +47,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let region of regions">
-                            <a [routerLink]="['/region', region.region_id]">{{ region.region_name }}</a>
+                            <a [routerLink]="['/region', region.region_id]">
+                                {{ region.region_name }}
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -55,7 +57,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subcategories <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let subcategory of subcategories">
-                            <a href="/subcategory/{{ subcategory.sc_id }}">{{ sc_title }}</a>
+                            <a [routerLink]="['/subcategory', subcategory.sc_id]">
+                                {{ subcategory.sc_title }}
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -66,7 +70,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fetish contacts <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let subject of subjects">
-                            <a href="/subject/{{ subject.subject_id }}">{{ subject.subject_title }}</a>
+                            <a [routerLink]="['/subject', subject.subject_id]">
+                                {{ subject.subject_title }}
+                            </a>
                         </li>
                     </ul>
                 </li>

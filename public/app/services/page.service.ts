@@ -19,7 +19,7 @@ export class PageService extends BaseService{
     }
     
     getPage(pageId: number) {
-        return this._http.get('/api/services/pages/' + pageId)
+        return this._http.get('/api/services/page/' + pageId)
                          .map(res => res.json())
                          .catch(this.handleError);
     }

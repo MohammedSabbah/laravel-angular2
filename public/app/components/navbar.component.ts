@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router'; 
+import {ROUTER_DIRECTIVES}   from '@angular/router';
+
 // Pages
 import { PageService } from '../services/page.service';
 import { Page } from '../models/Page';
@@ -24,7 +25,7 @@ import { Subcategory }        from '../models/Subcategory';
         PageService, 
         RegionService, 
         SubjectService, 
-        SubcategoryService]
+        SubcategoryService],
 })
 
 export class NavbarComponent {
