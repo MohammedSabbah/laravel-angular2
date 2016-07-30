@@ -1,0 +1,36 @@
+/**
+ * For some reason the component styles are not applied. Lets define them here for now
+ */
+
+.profile-name{
+    font-size: 1.5em;
+}
+.profile-list{
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.profile-list h1{
+    font-size: 2.5em;
+    color: #930303;
+}
+
+.profile-list h2{
+    font-size: 3.2em;
+}
+
+/**
+ * Override some bootstrap styles to make the page fit the whole screen
+ */
+
+ @media (min-width: 1200px){
+     .container {
+         width: 100%;
+     }
+    .col-lg-3 {
+        width: 20% !important;
+    }
+}
