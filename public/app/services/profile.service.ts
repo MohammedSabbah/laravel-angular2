@@ -60,7 +60,7 @@ export class ProfileService extends BaseService{
     getRandomProfiles(limit: number = 12, available: boolean = true) {
         return this._http.get('/api/services/escorts-random/' + limit + '/' + available)
                          .map(res => res.json())
-                         .do(data => console.log(data))
+                         // .do(data => console.log(data))
                          .catch(this.handleError);
     }
 }
