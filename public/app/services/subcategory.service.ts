@@ -22,6 +22,7 @@ export class SubcategoryService extends BaseService{
     getSubcategory(subcategoryId: number) {
         return this._http.get('/api/services/subcategory/' + subcategoryId)
                          .map(res => res.json())
+                         // .do(data => console.log(data))
                          .catch(this.handleError);
     }
 }

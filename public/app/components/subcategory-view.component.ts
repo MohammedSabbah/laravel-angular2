@@ -16,7 +16,7 @@ import { Thumbnail }          from '../models/Thumbnail';
 
 export class SubcategoryViewComponent {
     
-    subcategoryId: number = 1;
+    subcategoryId: number;
     subcategory: Subcategory;
     errorMessage: any;
     thumbnails: Array<Thumbnail>;

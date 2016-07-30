@@ -86,7 +86,7 @@ class ServiceController extends Controller
     // --------------------------------
 
     public function getSubcategory($sc_id = null) {
-    	return json_encode($this->subcategoriesRepository->getSubcategory($sc_id)->first());
+    	return json_encode($this->subcategoriesRepository->getSubcategory($sc_id));
     }
 
     public function getSubcategoryTitles() {

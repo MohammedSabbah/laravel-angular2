@@ -6,11 +6,14 @@ import { Thumbnail }      from '../models/Thumbnail';
 import { RegionService }  from '../services/region.service';
 import { Region }         from '../models/Region';
 
+import { TruncatePipe }   from '../pipes/truncate';
+
 @Component({
     selector: 'region-view',
     templateUrl: '/app/templates/region-view.component.html',
     directives: [ROUTER_DIRECTIVES],
-    providers: [ProfileService, RegionService]
+    providers: [ProfileService, RegionService],
+    pipes: [TruncatePipe]
 })
 
 export class RegionViewComponent {
