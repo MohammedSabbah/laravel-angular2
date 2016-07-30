@@ -13,7 +13,7 @@ import { SettingsService }  from '../services/settings.service';
 @Component({
     selector: 'profile-view',
     templateUrl: '/app/templates/profile-view.component.html',
-    providers: [ProfileService, RegionService]
+    providers: [ProfileService, RegionService, SettingsService]
 })
 
 export class ProfileViewComponent {
@@ -26,7 +26,8 @@ export class ProfileViewComponent {
     
     constructor(private _route: ActivatedRoute,
                 private _profileService: ProfileService,
-                private _regionService: RegionService) {
+                private _regionService: RegionService,
+                private _settingsService: SettingsService) {
         
     }
     
@@ -38,16 +39,19 @@ export class ProfileViewComponent {
                                .subscribe(
                                    profile => {
                                        this.profile = profile;
-                                       this._regionService.getRegion(this.profile.esc_subcats.replace("|", ""))
+                                       this._regionService.getRegion(parseInt(this.profile.esc_subcats.replace("|", "")))
                                                           .subscribe(
-                                                              region => {
-                                                                  this.region = region;
-                                                                  console.log(this.region);
-                                                              },
-                                                              error      => this.errorMessage = error);
+                                                              region => this.region = region,
+                                                              error  => this.errorMessage = error);
                                    },
                                    error   => this.errorMessage = <any>error 
                                );
+            this._settingsService.getTerm('[smallTerms]')
+                                 .subscribe(
+                                     terms => this.terms = terms.value,
+                                     error => this.errorMessage = <any>error
+                                 );
+            
         });
     }
 }

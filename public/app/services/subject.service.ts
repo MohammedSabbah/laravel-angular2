@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Http, Request} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Http, Request } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 import { BaseService } from './BaseService';
 
 import 'rxjs/Rx';
 
 @Injectable()
-export class SubjectService extends BaseService{
+export class SubjectService extends BaseService {
     
     constructor(private _http: Http) {
         super();

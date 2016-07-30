@@ -17,10 +17,16 @@ class EscortsRepository
      *
      * 	@param int|null $limit 	Defines how many results we get
      */
-    public function getRandom($limit = 30)
+    public function getRandom($limit = 30, $available = true)
     {
-    	$escorts = $this->escorts;
+    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img');
+
+        if($available) {
+            $escorts = $escorts->where('esc_available', 'Yes');
+        }
+
     	$escorts = $escorts->take($limit)->orderByRaw('RAND()');
+
     	return $escorts->get();
     }
 

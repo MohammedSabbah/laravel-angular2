@@ -10,6 +10,7 @@ use App\Http\Repositories\RegionsRepository;
 use App\Http\Repositories\PagesRepository;
 use App\Http\Repositories\SubcategoriesRepository;
 use App\Http\Repositories\SubjectsRepository;
+use App\Http\Repositories\SettingsRepository;
 
 class ServiceController extends Controller
 {
@@ -19,19 +20,22 @@ class ServiceController extends Controller
 	private $pagesRepository;
 	private $subcategoriesRepository;
     private $subjectsRepository;
+    private $settingsRepository;
 
 	public function __construct(
 		EscortsRepository $escortsRepository,
 		RegionsRepository $regionsRepository,
 		PagesRepository   $pagesRepository,
 		SubcategoriesRepository $subcategoriesRepository,
-        SubjectsRepository $subjectsRepository
+        SubjectsRepository $subjectsRepository,
+        SettingsRepository $settingsRepository
 		) {
 		$this->escortsRepository = $escortsRepository;
 		$this->regionsRepository = $regionsRepository;
 		$this->pagesRepository 	 = $pagesRepository;
 		$this->subcategoriesRepository = $subcategoriesRepository;
         $this->subjectsRepository = $subjectsRepository;
+        $this->settingsRepository = $settingsRepository;
 	}
 
     public function getEscorts($limit = null, $rand = null) {
@@ -48,6 +52,10 @@ class ServiceController extends Controller
 
     public function getEscort($esc_id = 1) {
         return json_encode($this->escortsRepository->getById($esc_id));
+    }
+
+    public function getEscortsRandom($take = 12, $available = true) {
+        return json_encode($this->escortsRepository->getRandom($take, $available));
     }
 
     // --------------------------------
@@ -95,5 +103,13 @@ class ServiceController extends Controller
 
     public function getSubjectTitles() {
         return json_encode($this->subjectsRepository->getTitles());
+    }
+
+    // --------------------------------
+    // Settings
+    // --------------------------------
+    
+    public function getSetting($setting) {
+        return json_encode(['value' =>  $this->settingsRepository->parseSettings($setting)]);
     }
 }
