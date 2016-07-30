@@ -1,0 +1,11 @@
+.profile-list{
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.profile-list h1{
+    color: #930303;
+}

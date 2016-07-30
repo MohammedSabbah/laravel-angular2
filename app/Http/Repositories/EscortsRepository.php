@@ -19,7 +19,7 @@ class EscortsRepository
      */
     public function getRandom($limit = 30, $available = true)
     {
-    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img');
+    	$escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age');
 
         if($available) {
             $escorts = $escorts->where('esc_available', 'Yes');

@@ -13,6 +13,7 @@ import { SettingsService }  from '../services/settings.service';
 @Component({
     selector: 'profile-view',
     templateUrl: '/app/templates/profile-view.component.html',
+    styleUrls: ['/app/styles/profile-view.css'],
     providers: [ProfileService, RegionService, SettingsService]
 })
 

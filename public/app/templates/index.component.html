@@ -18,7 +18,7 @@
     <hr>
 </div>
 
-<div class="row">
+<div class="row profile-list">
     <div class="col-lg-12">
         <h1>Newly added profiles</h1>
     </div>
@@ -27,12 +27,11 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let thumbnail of thumbnails">
-        <p>{{ thumbnail.esc_title }} ({{ thumbnail.esc_age }}yo)</p>
+        <p class="profile-name"><strong>{{ thumbnail.esc_title }}</strong> ({{ thumbnail.esc_age }}yo)</p>
         <a class="thumbnail" [routerLink]="['/profile', thumbnail.esc_id]">
             <img class="img-responsive" src="/img/resized/resized-main_{{ thumbnail.esc_img }}" alt="">
         </a>
     </div>
-    
 </div>
 
 <div class="row">
