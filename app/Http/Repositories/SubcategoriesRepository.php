@@ -20,7 +20,7 @@ class SubcategoriesRepository
     public function getSubcategory($sc_id = 1)
     {
         return $this->subcategories->where('sc_id', $sc_id)
-                                   ->first();
+                                    ->first();
     }
 
     /**

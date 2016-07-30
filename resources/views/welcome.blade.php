@@ -1,12 +1,10 @@
 <html>
   <head>
-    <title>Angular 2 QuickStart</title>
+    <title>UKQuickSex || UKQuickies</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Modern Business - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

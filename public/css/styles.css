@@ -34,3 +34,8 @@
         width: 20% !important;
     }
 }
+
+.carousel-caption a{
+    color: white !important;
+    text-decoration: none !important;
+}
