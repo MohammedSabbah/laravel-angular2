@@ -158,6 +158,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Provider to run Laravel in Google App Engine
+         */
+        Shpasser\GaeSupportL5\GaeSupportServiceProvider::class
+
     ],
 
     /*
