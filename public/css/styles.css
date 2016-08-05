@@ -39,3 +39,21 @@
     color: white !important;
     text-decoration: none !important;
 }
+
+/**
+ * Call to action in mobile devices:
+ */
+ @media (min-width: 770px) {
+     .mobile-call-to-action {
+         display: none;
+     }
+ }
+ 
+ .mobile-call-to-action {
+     text-align: center;
+ }
+ 
+ .mobile-call-to-action .button-send-text {
+     width: 60%;
+     height: 8%;
+ }
