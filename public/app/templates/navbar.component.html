@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sections <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">FAQ/How to join/etc <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a [routerLink]="['/page/24']">How it works</a>
@@ -44,7 +44,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Local UK Sex Contacts <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let region of regions">
                             <a [routerLink]="['/region', region.region_id]">
@@ -54,7 +54,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subcategories <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories/Different Ages/Types <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li *ngFor="let subcategory of subcategories">
                             <a [routerLink]="['/subcategory', subcategory.sc_id]">
