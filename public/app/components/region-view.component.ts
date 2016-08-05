@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ROUTER_DIRECTIVES }    from '@angular/router';
 
 import { ProfileService } from '../services/profile.service';
-import { Thumbnail }      from '../models/Thumbnail';
+
+import { Thumbnail }         from '../models/Thumbnail';
+import { ThumbnailComponent} from '../components/thumbnail.component';
+
 import { RegionService }  from '../services/region.service';
 import { Region }         from '../models/Region';
 
@@ -11,7 +14,7 @@ import { TruncatePipe }   from '../pipes/truncate';
 @Component({
     selector: 'region-view',
     templateUrl: '/app/templates/region-view.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, ThumbnailComponent],
     providers: [ProfileService, RegionService],
     pipes: [TruncatePipe]
 })
