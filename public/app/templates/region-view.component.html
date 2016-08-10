@@ -7,7 +7,8 @@
         <p class="profile-name"><strong>{{ thumbnail.esc_title }}</strong> ({{ thumbnail.esc_age }}yo)</p>
         <div class="thumbnail side-corner-tag">
             <span><p class="{{ thumbnail.esc_available }}-tag">{{ thumbnail.esc_available }}</p></span>
-            <a [routerLink]="['/profile', thumbnail.esc_id]">
+            <a [routerLink]="['/profile', thumbnail.esc_id]" 
+               [class.disabled]="thumbnail.esc_available == 'dating' ? true : null">
                 <img class="img-responsive" src="/img/resized/resized-main_{{ thumbnail.esc_img }}" alt="">
             </a>
         </div>
