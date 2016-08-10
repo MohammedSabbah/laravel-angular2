@@ -48,7 +48,23 @@ class EscortsRepository
     						   ->where('esc_age', '<', $ageMax);
     	}
 
-    	return $escorts->orderByRaw('RAND()')->get();
+        $output = $escorts->orderByRaw('RAND()')
+                          ->get();
+        
+        // We are using CSS classes in our angular application to show if a profile is online or if it's not available
+        // so what we have to do is to change the value of this object property because if the profile is
+        // online we are going to use 'online' and if it's not available we will write 'dating'
+        // or any other value we want to add.
+        foreach($output as $key => $escort) {
+            if($escort->esc_available == 'Yes') {
+                $output[$key]->esc_available = 'online';
+            }
+            else {
+                $output[$key]->esc_available = 'dating';
+            }
+        }
+
+        return $output;
     }
 
     /**

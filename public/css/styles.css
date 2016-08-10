@@ -57,6 +57,19 @@
      width: 60%;
      height: 8%;
  }
+
+ /*
+ .online-tag {
+    color: white;
+    position: absolute;
+    background-color: green;
+    width: 100px;
+    transform: rotate(38deg);
+    left: 194px;
+    top: 13px;
+    text-align: center;
+ }
+ */
  
  /**
   * top corner ribbon
@@ -79,13 +92,31 @@
     font-weight: 900;
 } 
  
-.side-corner-tag span p {
+.side-corner-tag span p.online-tag {
     position: absolute;
     display: inline-block;
     right: -25px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2), inset 0px 5px 30px rgba(255,255,255,0.2);
     text-align: center;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    top: 6px;
+    background: green;
+    width: 100px;
+    padding: 3px 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    content: 'online';
+} 
+
+.side-corner-tag span p.dating-tag {
+    position: absolute;
+    display: inline-block;
+    right: -25px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2), inset 0px 5px 30px rgba(255,255,255,0.2);
+    text-align: center;
+    /*text-transform: uppercase;*/
     top: 6px;
     background: #d93131;
     width: 100px;
@@ -94,6 +125,7 @@
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
+    content: 'dating';
 } 
  
 .side-corner-tag span:before {
