@@ -7,11 +7,13 @@ import { Subcategory }        from '../models/Subcategory';
 import { ProfileService }     from '../services/profile.service';
 import { Thumbnail }          from '../models/Thumbnail';
 
+import { ThumbnailComponent } from '../components/thumbnail.component';
+
 @Component({
     selector: 'subcategory-view',
     templateUrl: '/app/templates/subcategory-view.component.html',
     providers: [SubcategoryService, ProfileService],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, ThumbnailComponent]
 })
 
 export class SubcategoryViewComponent {
