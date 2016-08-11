@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { Thumbnail } from '../models/Thumbnail';
-import { ProfileService } from '../services/profile.service';
+import { Thumbnail }        from '../models/Thumbnail';
+import { ProfileService }   from '../services/profile.service';
+
+import { ThumbnailComponent } from '../components/thumbnail.component';
 
 @Component({
     selector: 'index',
     templateUrl: '/app/templates/index.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, ThumbnailComponent],
     providers: [ProfileService]
 })
 
