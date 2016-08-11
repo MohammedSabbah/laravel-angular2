@@ -51,8 +51,4 @@ export class RegionViewComponent {
                             ); 
         });
     }
-    
-    isDisabled(link) {
-        return link === 'profile';
-    }
 }

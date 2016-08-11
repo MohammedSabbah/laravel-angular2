@@ -1,9 +1,11 @@
 <p class="profile-name"><strong>{{ profileName }}</strong> ({{ profileAge }}yo)</p>
 <div class="thumbnail side-corner-tag">
     <span><p class="{{ available }}-tag">{{ available }}</p></span>
-    <a [routerLink]="['/profile', idProfile]" 
-               [class.disabled]="available == 'dating' ? true : null"
-               (click)="isDisabled(available)">
+    
+    <a *ngIf="isDisabled(available)" 
+       [routerLink]="['/profile', idProfile]">
         <img class="img-responsive" src="/img/resized/resized-main_{{ image }}" alt="">
     </a>
+    
+    <img *ngIf="!isDisabled(available)" class="img-responsive" src="/img/resized/resized-main_{{ image }}" alt="">
 </div>

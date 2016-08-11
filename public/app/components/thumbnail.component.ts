@@ -37,4 +37,16 @@ export class ThumbnailComponent {
     ngOnInit() {
         
     }
+    
+    /*
+     * I tried disabling link in Angular2 using a couple of techniches but I haven't
+     * managed. What I'm doing here is to show 2 different elements using *ngIf
+     * 
+     * If the profile is available show link and picture
+     * If the profile is not available show only picture
+     * 
+     */
+    isDisabled(status) {
+        return status == 'online' ? true : false;
+    }
 }
