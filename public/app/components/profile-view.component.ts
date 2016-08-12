@@ -10,6 +10,8 @@ import { RegionService }    from '../services/region.service';
 import { Settings }         from '../models/Settings';
 import { SettingsService }  from '../services/settings.service';
 
+import { DomSanitizationService } from '@angular/platform-browser';
+
 @Component({
     selector: 'profile-view',
     templateUrl: '/app/templates/profile-view.component.html',
@@ -24,15 +26,17 @@ export class ProfileViewComponent {
     errorMessage: any;
     region: Region;
     terms: string;
+    sanitizedUrl;
     
     constructor(private _route: ActivatedRoute,
                 private _profileService: ProfileService,
                 private _regionService: RegionService,
-                private _settingsService: SettingsService) {
+                private _settingsService: SettingsService,
+                private _sanitizer: DomSanitizationService) {
         
     }
-    
-    ngOnInit() {
+        
+    ngOnInit() {       
         // retrieve profile id
         this._route.params.subscribe(params => {
            this.profileId = params['id']; 
@@ -40,7 +44,15 @@ export class ProfileViewComponent {
                                .subscribe(
                                    profile => {
                                        this.profile = profile;
-                                       this._regionService.getRegion(parseInt(this.profile.esc_subcats.replace("|", "")))
+                                       
+                                       // generate contact button: we have to use the DomSanitizationService to skip sanitazion before
+                                       // adding the HTML to our view, otherwise the sms:// link won't work
+                                       let contactButtonHtml = '<a href="sms://' + profile.esc_phone + ';body=' + profile.esc_code + '">' +
+                                                                    '<button type="button" class="btn btn-primary button-send-text">Contact her right now!</button>' +                            
+                                                                '</a>';
+                                        this.sanitizedUrl = this._sanitizer.bypassSecurityTrustHtml(contactButtonHtml);
+                                        
+                                        this._regionService.getRegion(parseInt(this.profile.esc_subcats.replace("|", "")))
                                                           .subscribe(
                                                               region => this.region = region,
                                                               error  => this.errorMessage = error);

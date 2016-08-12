@@ -24,9 +24,12 @@
     
     <div class="mobile-call-to-action">
         <h1 align="center">Send {{ profile?.esc_title }} a text from your phone:</h1>
+        <!--
         <a href="sms://{{ profile?.esc_phone }};body={{ profile?.esc_code }}">
             <button type="button" class="btn btn-primary button-send-text">Contact her right now!</button>
         </a>
+        -->
+        <div [innerHtml]="sanitizedUrl"></div>
         <hr>
         <h1 align="center">or...</h1>    
     </div>
