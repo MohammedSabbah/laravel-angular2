@@ -25,9 +25,11 @@ class EscortsRepository
             $escorts = $escorts->where('esc_available', 'Yes');
         }
 
-    	$escorts = $escorts->take($limit)->orderByRaw('RAND()');
+    	$escorts = $escorts->take($limit)->orderByRaw('RAND()')->get();
 
-    	return $escorts->get();
+        $escorts = $this->_setAvailability($escorts);
+
+    	return $escorts;
     }
 
     /**
@@ -51,18 +53,7 @@ class EscortsRepository
         $output = $escorts->orderByRaw('RAND()')
                           ->get();
         
-        // We are using CSS classes in our angular application to show if a profile is online or if it's not available
-        // so what we have to do is to change the value of this object property because if the profile is
-        // online we are going to use 'online' and if it's not available we will write 'dating'
-        // or any other value we want to add.
-        foreach($output as $key => $escort) {
-            if($escort->esc_available == 'Yes') {
-                $output[$key]->esc_available = 'online';
-            }
-            else {
-                $output[$key]->esc_available = 'dating';
-            }
-        }
+        $output = $this->_setAvailability($output);
 
         return $output;
     }
@@ -74,9 +65,13 @@ class EscortsRepository
      */
     public function getBySubcategory($sc_id = 1) 
     {
-        return $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age')
-                             ->where('esc_status', $sc_id)
-                             ->get();
+        $escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age')
+                                 ->where('esc_status', $sc_id)
+                                 ->get();
+
+        $escorts = $this->_setAvailability($escorts);
+
+        return $escorts;
     }
 
     /**
@@ -86,5 +81,24 @@ class EscortsRepository
      */
     public function getById($esc_id) {
         return $this->escorts->where('esc_id', $esc_id)->first();
+    }
+
+    /** 
+     * We are using CSS classes in our angular application to show if a profile is online or if it's not available
+     * so what we have to do is to change the value of this object property because if the profile is
+     * online we are going to use 'online' and if it's not available we will write 'dating'
+     * or any other value we want to add.
+     */
+    private function _setAvailability($escorts) {
+        foreach($escorts as $key => $escort) {
+            if($escort->esc_available == 'Yes') {
+                $escorts[$key]->esc_available = 'online';
+            }
+            else {
+                $escorts[$key]->esc_available = 'dating';
+            }
+        }
+
+        return $escorts;
     }
 }

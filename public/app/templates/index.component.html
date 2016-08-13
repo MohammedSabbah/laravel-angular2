@@ -27,21 +27,12 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let thumbnail of thumbnails">
-        
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let thumbnail of thumbnails">
+
             <thumbnail  [idProfile]="thumbnail.esc_id"
                         [available]="thumbnail.esc_available"
                         [image]="thumbnail.esc_img"
                         [profileName]="thumbnail.esc_title"
                         [profileAge]="thumbnail.esc_age"></thumbnail>
-        </div>
-        
-        <!--
-        <p class="profile-name"><strong>{{ thumbnail.esc_title }}</strong> ({{ thumbnail.esc_age }}yo)</p>
-        <a class="thumbnail" [routerLink]="['/profile', thumbnail.esc_id]">
-            <img class="img-responsive" src="/img/resized/resized-main_{{ thumbnail.esc_img }}" alt="">
-        </a>
-        -->
     </div>
 </div>
 
