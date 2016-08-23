@@ -41,9 +41,9 @@
 }
 
 /**
- * Call to action in mobile devices:
+ * Hide call to action in desktop devices:
  */
- @media (min-width: 770px) {
+  @media (min-width: 770px) {
      .mobile-call-to-action {
          display: none;
      }

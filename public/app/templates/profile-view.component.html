@@ -35,15 +35,13 @@
     <h2 align='center'>{{ profile?.esc_code }}</h2>
     <h1 align='center'>to</h1>
     
-    <div class="mobile-call-to-action">
-        <!-- make phone number clicable on mobile devices -->
-        <div [innerHTML]="contactNumberHtml"></div>
-    </div>
+    <!-- make phone number clicable on mobile devices -->
+    <div [innerHTML]="contactNumberHtml"></div>
     
-    <h2 align='center' class='desktop-call-to-action'>{{ profile?.esc_phone }}</h2>
     <!--
-    <h2 align='center'>89922</h2>
+    <h2 align='center' class='desktop-call-to-action'>{{ profile?.esc_phone }}</h2>
     -->
+    
     <p class='terms'>
         {{ terms }}
     </p>
