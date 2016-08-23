@@ -24,11 +24,6 @@
     
     <div class="mobile-call-to-action">
         <h1 align="center">Send {{ profile?.esc_title }} a text from your phone:</h1>
-        <!--
-        <a href="sms://{{ profile?.esc_phone }};body={{ profile?.esc_code }}">
-            <button type="button" class="btn btn-primary button-send-text">Contact her right now!</button>
-        </a>
-        -->
         <div [innerHtml]="sanitizedUrl"></div>
         <hr>
         <h1 align="center">or...</h1>    
@@ -39,7 +34,13 @@
     <h1 align="center">To contact {{ profile?.esc_title }} use your mobile telephone and text the word: </h1>
     <h2 align='center'>{{ profile?.esc_code }}</h2>
     <h1 align='center'>to</h1>
-    <h2 align='center'>{{ profile?.esc_phone }}</h2>
+    
+    <div class="mobile-call-to-action">
+        <!-- make phone number clicable on mobile devices -->
+        <div [innerHTML]="contactNumberHtml"></div>
+    </div>
+    
+    <h2 align='center' class='desktop-call-to-action'>{{ profile?.esc_phone }}</h2>
     <!--
     <h2 align='center'>89922</h2>
     -->

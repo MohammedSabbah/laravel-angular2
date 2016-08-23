@@ -27,6 +27,7 @@ export class ProfileViewComponent {
     region: Region;
     terms: string;
     sanitizedUrl;
+    sanitizedUrlNumber;
     
     constructor(private _route: ActivatedRoute,
                 private _profileService: ProfileService,
@@ -45,12 +46,19 @@ export class ProfileViewComponent {
                                    profile => {
                                        this.profile = profile;
                                        
-                                       // generate contact button: we have to use the DomSanitizationService to skip sanitazion before
-                                       // adding the HTML to our view, otherwise the sms:// link won't work
-                                       let contactButtonHtml = '<a href="sms://' + profile.esc_phone + ';body=' + profile.esc_code + '">' +
+                                        // generate contact button: we have to use the DomSanitizationService to skip sanitazion before
+                                        // adding the HTML to our view, otherwise the sms:// link won't work
+                                        let contactButtonHtml = '<a href="sms://' + profile.esc_phone + '">' +
                                                                     '<button type="button" class="btn btn-primary button-send-text">Contact her right now!</button>' +                            
                                                                 '</a>';
+                                                                
+                                        // make phone number clicable on mobile devices
+                                        let contactNumberHtml = '<a href="sms://' + profile.esc_phone + '">' +
+                                                                    '<h2 align="center">' + profile.esc_phone + '</h1>' +                            
+                                                                '</a>';
+                                                                
                                         this.sanitizedUrl = this._sanitizer.bypassSecurityTrustHtml(contactButtonHtml);
+                                        this.sanitizedUrlNumber = this._sanitizer.bypassSecurityTrustHtml(contactNumberHtml);
                                         
                                         this._regionService.getRegion(parseInt(this.profile.esc_subcats.replace("|", "")))
                                                           .subscribe(
