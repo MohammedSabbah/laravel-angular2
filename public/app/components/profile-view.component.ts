@@ -47,7 +47,7 @@ export class ProfileViewComponent {
                                        
                                        // generate contact button: we have to use the DomSanitizationService to skip sanitazion before
                                        // adding the HTML to our view, otherwise the sms:// link won't work
-                                       let contactButtonHtml = '<a href="sms://' + profile.esc_phone + ';body=' + profile.esc_code + '">' +
+                                       let contactButtonHtml = '<a href="sms://' + profile.esc_phone + '">' +
                                                                     '<button type="button" class="btn btn-primary button-send-text">Contact her right now!</button>' +                            
                                                                 '</a>';
                                         this.sanitizedUrl = this._sanitizer.bypassSecurityTrustHtml(contactButtonHtml);
