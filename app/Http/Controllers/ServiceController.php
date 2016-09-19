@@ -108,8 +108,17 @@ class ServiceController extends Controller
     // --------------------------------
     // Settings
     // --------------------------------
-    
+
     public function getSetting($setting) {
         return json_encode(['value' =>  $this->settingsRepository->parseSettings($setting)]);
+    }
+
+    // --------------------------------
+    // Settings
+    // --------------------------------
+
+    public function getGeoProfiles() {
+        $clientIp = \Request::ip();
+        return file_get_contents("http://ip-api.com/json/" . $clientIp);
     }
 }
