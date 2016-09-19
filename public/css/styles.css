@@ -2,6 +2,12 @@
  * For some reason the component styles are not applied. Lets define them here for now
  */
 
+.twitter-icon {
+    padding-top: 10px;
+    padding-right: 12px;
+    padding-left: 30px;
+}
+
 .profile-name{
     font-size: 1.5em;
 }
@@ -32,6 +38,12 @@
      }
     .col-lg-3 {
         width: 20% !important;
+    }
+
+    .dropdown-menu {
+        max-height: 600px;
+        overflow: scroll;
+        overflow-x: hidden;
     }
 }
 
@@ -115,7 +127,7 @@
     content: 'online';
 } 
 
-.side-corner-tag span p.dating-tag {
+.side-corner-tag span p.offline-tag {
     position: absolute;
     display: inline-block;
     right: -25px;
@@ -130,7 +142,7 @@
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    content: 'dating';
+    content: 'offline';
 } 
  
 .side-corner-tag span:before {

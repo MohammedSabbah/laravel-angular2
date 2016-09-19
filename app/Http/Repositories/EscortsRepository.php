@@ -95,7 +95,7 @@ class EscortsRepository
                 $escorts[$key]->esc_available = 'online';
             }
             else {
-                $escorts[$key]->esc_available = 'dating';
+                $escorts[$key]->esc_available = 'offline';
             }
         }
 
