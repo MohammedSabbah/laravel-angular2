@@ -1,0 +1,18 @@
+<!--
+<p class="profile-name"><strong>{{ profileName }}</strong> ({{ profileAge }}yo)</p>
+<div class="thumbnail side-corner-tag">
+    <span><p class="{{ available }}-tag">{{ available }}</p></span>
+    
+    <a *ngIf="isDisabled(available)" 
+       [routerLink]="['/profile', idProfile]">
+        <img class="img-responsive" src="/img/resized/resized-main_{{ image }}" alt="">
+    </a>
+</div>
+-->
+<div class="thumbnail side-corner-tag" *ngFor="let randomId of randomIds">
+    <span><p class="online-tag">Online</p></span>
+    
+    <a [routerLink]="['/geoProfile', randomId]">
+        <img class="img-responsive" src="/img/resized/resized-main_{{ image }}" alt="">
+    </a>
+</div>
