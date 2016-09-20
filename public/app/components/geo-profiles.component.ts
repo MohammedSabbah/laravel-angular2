@@ -1,17 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute }    from '@angular/router';
+import { ActivatedRoute, ROUTER_DIRECTIVES }    from '@angular/router';
 
 import { GeoProfileService } from '../services/geoprofile.service';
 
 @Component({
     selector: 'geo-profiles',
     templateUrl: '/app/templates/geo-profiles.component.html',
+    directives: [ROUTER_DIRECTIVES],
     providers: [GeoProfileService]
 })
 
 export class GeoProfilesComponent {
     
-    randomIds: Array<number>;
+    randomIds: Array<number> = [];
     geoData: any;
     errorMessage: any;
     
@@ -44,9 +45,7 @@ export class GeoProfilesComponent {
         // generate 3 random numbers
         for(let i = 0; i <= 3; i++) {
             let randomNumber = Math.floor(Math.random() * max + 1);
-            if(!this.randomIds.indexOf(randomNumber)) {
-                this.randomIds.push(randomNumber);
-            }
+            this.randomIds.push(randomNumber);
         }
     }
 }
