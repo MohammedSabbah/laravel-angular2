@@ -5,6 +5,10 @@ import { HTTP_PROVIDERS }   from '@angular/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { APP_ROUTER_PROVIDERS }                   from './app.routes';
 
+import {enableProdMode} from '@angular/core';
+
+enableProdMode();
+
 // We are using the hash strategy because otherwise the Angular 2 Router
 // conflicts with our Laravel routes. I haven't had time to find a solution
 // to this problem but it should be simple. We only need 1 route in our
