@@ -6,10 +6,12 @@ import { ProfileService }   from '../services/profile.service';
 
 import { ThumbnailComponent } from '../components/thumbnail.component';
 
+import { GeoProfilesComponent} from '../components/geo-profiles.component';
+
 @Component({
     selector: 'index',
     templateUrl: '/app/templates/index.component.html',
-    directives: [ROUTER_DIRECTIVES, ThumbnailComponent],
+    directives: [ROUTER_DIRECTIVES, ThumbnailComponent, GeoProfilesComponent],
     providers: [ProfileService]
 })
 

@@ -1,0 +1,27 @@
+<!--
+<p class="profile-name"><strong>{{ profileName }}</strong> ({{ profileAge }}yo)</p>
+<div class="thumbnail side-corner-tag">
+    <span><p class="{{ available }}-tag">{{ available }}</p></span>
+    
+    <a *ngIf="isDisabled(available)" 
+       [routerLink]="['/profile', idProfile]">
+        <img class="img-responsive" src="/img/resized/resized-main_{{ image }}" alt="">
+    </a>
+</div>
+-->
+
+<!-- it can happen that we don't receive the geo location information
+     if that's the case show a different wording
+-->
+<h1 *ngIf="geoData?.city">Profiles in {{ geoData?.city}}</h1>
+<h1 *ngIf="!geoData?.city">Profiles near you:</h1>
+
+<div class="thumbnail side-corner-tag" *ngFor="let randomId of randomIds">
+    <span><p class="online-tag">Online</p></span>
+    
+    <a [routerLink]="['/geoProfile', randomId]">
+        <img class="img-responsive" src="/img/resized/geolocation/resized-main_{{ randomId }}" alt="">
+    </a>
+</div>
+
+<h2><a [routerLink]="['/subcategory/70']">Milf Sex Contacts</a> and <a [routerLink]="['/subcategory/64']">Granny Sex contacts.</a></h2> 
