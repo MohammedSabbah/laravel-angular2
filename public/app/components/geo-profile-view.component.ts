@@ -19,6 +19,7 @@ export class GeoProfileViewComponent {
     profileId: number;
     geoProfiles: Array<string> = ["hornyval", "oldyapril", "sexycharlotte", "hotdahlia", "sexygrace", "hornyhelena", "hornyhope", "sexyjane", "hotjanet", "janexxx", "juicyjenny", "juicyjess", "hornyjill", "naughtykatie", "sexylinda", "hotmari", "hotmarie", "hornymeg", "hotnanette", "racyrobbi", "sexysam", "sexyshell", "naughtyshirley", "saucysophie", "tastytan"];
     
+    // I don't like to hardcode data here but we have to do it for now
     shortcode: number = 69920;
     
     terms: string;
