@@ -37,7 +37,7 @@
     <h1 align='center'>to</h1>
     
     <!-- make phone number clicable on mobile devices -->
-    <div [innerHTML]="contactNumberHtml"></div>
+    <div [innerHTML]="sanitizedUrlNumber"></div>
     
     <!--
     <h2 align='center' class='desktop-call-to-action'>{{ profile?.esc_phone }}</h2>

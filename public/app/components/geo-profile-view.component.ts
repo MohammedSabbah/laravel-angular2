@@ -8,7 +8,7 @@ import { DomSanitizationService } from '@angular/platform-browser';
 
 @Component({
     selector: 'geo-profile-view',
-    templateUrl: '/app/templates/geo-view.component.html',
+    templateUrl: '/app/templates/geo-profile-view.component.html',
     providers: [SettingsService]
 })
 
@@ -20,7 +20,7 @@ export class GeoProfileViewComponent {
     geoProfiles: Array<string> = ["hornyval", "oldyapril", "sexycharlotte", "hotdahlia", "sexygrace", "hornyhelena", "hornyhope", "sexyjane", "hotjanet", "janexxx", "juicyjenny", "juicyjess", "hornyjill", "naughtykatie", "sexylinda", "hotmari", "hotmarie", "hornymeg", "hotnanette", "racyrobbi", "sexysam", "sexyshell", "naughtyshirley", "saucysophie", "tastytan"];
     
     // I don't like to hardcode data here but we have to do it for now
-    shortcode: number = 69920;
+    shortcode: string = "69920";
     
     terms: string;
     errorMessage: any;

@@ -43,7 +43,7 @@ export class GeoProfilesComponent {
         let max = 24;
         
         // generate 3 random numbers
-        for(let i = 0; i <= 3; i++) {
+        for(let i = 0; i <= 4; i++) {
             let randomNumber = Math.floor(Math.random() * max + 1);
             this.randomIds.push(randomNumber);
         }

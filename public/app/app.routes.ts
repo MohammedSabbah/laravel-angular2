@@ -5,6 +5,7 @@ import { RegionViewComponent }         from './components/region-view.component'
 import { PageViewComponent }           from './components/page-view.component';
 import { SubjectViewComponent }        from './components/subject-view.component';
 import { SubcategoryViewComponent }    from './components/subcategory-view.component';
+import { GeoProfileViewComponent }     from './components/geo-profile-view.component';
 
 // The RouterConfig is an array of routes that describe how to navigate.
 // Each route maps a URL path to a component
@@ -15,7 +16,8 @@ export const routes: RouterConfig = [
     { path: 'region/:id'        , component: RegionViewComponent},
     { path: 'page/:id'          , component: PageViewComponent },
     { path: 'subject/:id'       , component: SubjectViewComponent },
-    { path: 'subcategory/:id'   , component: SubcategoryViewComponent }
+    { path: 'subcategory/:id'   , component: SubcategoryViewComponent },
+    { path: 'geoprofile/:id'    , component: GeoProfileViewComponent }
 ];
 
 // To bootstrap our application routes we have to use the provideRouter function
