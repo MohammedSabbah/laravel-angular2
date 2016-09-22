@@ -29,7 +29,9 @@ And the app will run in your localhost, port 8000. If you have any permission is
     composer dump-autoload
 
 # About webpack
+
 Angular2 includes loads of different modules that are scattered in different files. This makes the app run pretty slow even if we are in production mode. If we want to speed things up we have to use **webpack** to bundle all dependencies into one single file.
+
 We need a **webpack.config.js** in our /public folder and we need to change our **package.json** and **index file** to include the bundle.
 You can find examples in the following folders:
 
@@ -38,3 +40,8 @@ You can find examples in the following folders:
 
     /resources/views/welcome.blade.php          # index with webpack (production)
     /resources/views/welcome.blade.php.old      # index without webpack (developement)
+
+**NOTE:** remember to run 'npm install' to install dependencies or to install webpack and webpack-dev-server globally
+
+    npm install webpack -g
+    npm instlal webpack-dev-server -g
