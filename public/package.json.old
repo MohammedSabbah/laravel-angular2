@@ -2,8 +2,13 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "build" : "webpack",
-    "start" : "webpack-dev-server"
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+
   },
   "license": "ISC",
   "dependencies": {
@@ -27,6 +32,8 @@
   },
   "devDependencies": {
     "typescript": "^1.8.10",
-    "ts-loader": "^0.7.2"
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typings":"^1.0.4"
   }
 }

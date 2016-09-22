@@ -24,23 +24,25 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <!-- 1. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
+    <!-- Polyfill(s) for older browsers
+            NOTE: Even if we use webpack we have to include these two files. It'll throw an error otherwise
+    -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
+
+    <!--
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script type="text/javascript" src="node_modules/@angular/http/http.js"></script>
-
-    <!-- uk map dependencies -->
-    <script src="lg-map/raphael.js" type="text/javascript"></script>
-    <script src="lg-map/scale.raphael.js" type="text/javascript"></script>
-    <script src="lg-map/lg-map.js" type="text/javascript"></script>
+    -->
 
     <!-- 2. Configure SystemJS -->
+    <!--
     <script src="systemjs.config.js"></script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+    -->
   </head>
   <!-- 3. Display the application -->
   <body>
@@ -51,6 +53,14 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- webpack with all the previous angular includes -->
+    <script type="text/javascript" src="/dist/bundle.js"></script>
+
+    <!-- uk map dependencies -->
+    <script src="lg-map/raphael.js" type="text/javascript"></script>
+    <script src="lg-map/scale.raphael.js" type="text/javascript"></script>
+    <script src="lg-map/lg-map.js" type="text/javascript"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>
