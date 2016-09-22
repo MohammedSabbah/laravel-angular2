@@ -31,6 +31,11 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script type="text/javascript" src="node_modules/@angular/http/http.js"></script>
 
+    <!-- uk map dependencies -->
+    <script src="lg-map/raphael.js" type="text/javascript"></script>
+    <script src="lg-map/scale.raphael.js" type="text/javascript"></script>
+    <script src="lg-map/lg-map.js" type="text/javascript"></script>
+
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
