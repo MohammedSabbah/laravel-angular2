@@ -45,3 +45,10 @@ You can find examples in the following folders:
 
     npm install webpack -g
     npm instlal webpack-dev-server -g
+
+# Gulp
+We have also created a Gulp taks in **gulpfile.js** to minify our bundle and make it even smaller to speed up our application. In the root folder just run
+
+    gulp compress
+
+It will replace the old bundle.js with a minified version (you can change the destination directory if you want to keep the old file)
