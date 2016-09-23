@@ -46,9 +46,19 @@ You can find examples in the following folders:
     npm install webpack -g
     npm instlal webpack-dev-server -g
 
+Once webpack has been installed run
+
+    webpack
+
+In the /public folder and a new file dist/bundle.js will be created. Keep in mind that if you use the new files with webpack you'll have to recompile the JS every time you make a change to the TS files (because we are only including the dist/bundle.js in our index page)
+
 # Gulp
 We have also created a Gulp taks in **gulpfile.js** to minify our bundle and make it even smaller to speed up our application. In the root folder just run
 
     gulp compress
 
 It will replace the old bundle.js with a minified version (you can change the destination directory if you want to keep the old file)
+
+**NOTE:** couldn't make it work on the Google Cloud server. There's a weird error when I try to install Gulp. You can compile the file locally and the SCP it to the server:
+
+    scp /public/dist/bundle.js <user>@<ip>:/path/to/www
