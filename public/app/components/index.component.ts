@@ -22,6 +22,7 @@ export class IndexComponent {
 
     thumbnails: Thumbnail;
     errorMessage: any;
+    today: any;
 
     constructor(private _profileService: ProfileService,
                 private _runtimeCompiler: RuntimeCompiler) {
@@ -30,10 +31,25 @@ export class IndexComponent {
 
     ngOnInit() {
         this._runtimeCompiler.clearCache();
+
+        let date = new Date();
+        this.today = date.getDate();
+        
         this._profileService.getRandomProfiles()
                             .subscribe(
                                 thumbnails => this.thumbnails = thumbnails,
                                 error     => this.errorMessage = <any>error
                             );
+    }
+
+    getDate() {
+        let monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"];
+
+        let dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+        let d = new Date();
+        let date = dayNames[d.getUTCDay()] + " " + d.getDate().toString() + " of " + monthNames[d.getMonth()];
+        return date;
     }
 }
