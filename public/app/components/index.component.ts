@@ -8,9 +8,6 @@ import { ThumbnailComponent } from '../components/thumbnail.component';
 
 import { GeoProfilesComponent} from '../components/geo-profiles.component';
 
-// clear the cache so that users see always the latest version
-import { RuntimeCompiler} from '@angular/compiler';
-
 @Component({
     selector: 'index',
     templateUrl: '/app/templates/index.component.html',
@@ -24,32 +21,41 @@ export class IndexComponent {
     errorMessage: any;
     today: any;
 
-    constructor(private _profileService: ProfileService,
-                private _runtimeCompiler: RuntimeCompiler) {
+    constructor(private _profileService: ProfileService) {
 
     }
 
     ngOnInit() {
-        this._runtimeCompiler.clearCache();
-
-        let date = new Date();
-        this.today = date.getDate();
-        
+        this.today = this.getTodayDate();
+        console.log(this.getTodayDate());
         this._profileService.getRandomProfiles()
                             .subscribe(
                                 thumbnails => this.thumbnails = thumbnails,
                                 error     => this.errorMessage = <any>error
                             );
     }
-
-    getDate() {
-        let monthNames = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"];
-
-        let dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
+    
+    getTodayDate() {
+        let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let weekDayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        
         let d = new Date();
-        let date = dayNames[d.getUTCDay()] + " " + d.getDate().toString() + " of " + monthNames[d.getMonth()];
-        return date;
+        let day = this.addOrd(d.getDate());
+        
+        return weekDayNames[d.getDay() - 1] + ", " + day + " of " + monthNames[d.getMonth()];
+    }
+    
+    // adds ordinals to dates (1st, 2nd, 3rd, etc.)
+    addOrd(i) {
+        if(i == "1" || i == "21" || i == "31") {
+            return i + "st";
+        }
+        if(i == "2" || i == "22") {
+            return i + "nd";
+        }
+        if(i == "3" || i == "23") {
+            return i + "rd";
+        }
+        return i + "th";
     }
 }

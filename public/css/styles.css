@@ -29,6 +29,15 @@
 }
 
 /**
+ *  Hide wording on small devices
+ */
+@media (max-width: 770px) {
+  .initial-wording {
+    display: none;
+  }
+}
+
+/**
  * Override some bootstrap styles to make the page fit the whole screen
  */
 
