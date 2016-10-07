@@ -29,11 +29,14 @@
 }
 
 /**
- *  Hide wording on small devices
+ *  Hide wording on small devices and reset the title
  */
 @media (max-width: 770px) {
   .initial-wording {
     display: none;
+  }
+  .profile-list h1 {
+    font-size: 1em;
   }
 }
 
@@ -67,6 +70,14 @@
   @media (min-width: 770px) {
      .mobile-call-to-action {
          display: none;
+     }
+     
+     .profile-name {
+            font-size: 12px;
+     }
+     
+     .profile-list h1 {
+         font-size: 16px;
      }
  }
  
