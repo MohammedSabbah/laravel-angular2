@@ -128,7 +128,7 @@
     font-weight: 900;
 } 
  
-.side-corner-tag span p.online-tag {
+.side-corner-tag span p.available-tag {
     position: absolute;
     display: inline-block;
     right: -25px;
