@@ -146,7 +146,7 @@
     content: 'online';
 } 
 
-.side-corner-tag span p.offline-tag {
+.side-corner-tag span p.unavailable-tag {
     position: absolute;
     display: inline-block;
     right: -25px;
