@@ -9,10 +9,12 @@ class PagesRepository
 {
     private $pages;
     private $settingsRepository;
+    private $hiddenPages; // avoid displaying these pages
 
     public function __construct(Pages $pages, SettingsRepository $settingsRepository) {
         $this->pages = $pages;
         $this->settingsRepository = $settingsRepository;
+        $this->hiddenPages = [86, 76, 88];
     }
 
     /**
@@ -23,6 +25,7 @@ class PagesRepository
         return $this->pages->select('page_id', 'page_title', 'page_url')
                            ->where('page_active', 1)
                            ->where('page_gay', 0)
+                           ->whereNotIn('id', $this->hiddenPages)
                            ->get();
     }
 

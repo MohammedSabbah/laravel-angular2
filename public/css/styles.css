@@ -187,3 +187,9 @@
     border: 17px solid;
     border-color: #662121 transparent transparent transparent;
 }
+
+.phoneNumber {
+    font-size: 3em;
+    font-weight: bold;
+    color: #930303;
+}

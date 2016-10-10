@@ -7,9 +7,11 @@ use App\Http\Models\Subcategories;
 class SubcategoriesRepository
 {
 	private $subcategories;
+    private $hiddenSubcategories; // avoid displaying these pages
 
     public function __construct(Subcategories $subcategories) {
     	$this->subcategories = $subcategories;
+        $this->hiddenSubcategories = [76, 84, 86, 88];
     }
 
     /**
@@ -28,6 +30,7 @@ class SubcategoriesRepository
      */
     public function getTitles() {
         return $this->subcategories->select('sc_id', 'sc_title', 'sc_link')
+                                   ->whereNotIn('sc_id', $this->hiddenSubcategories)
                                    ->orderBy('sc_order')
                                    ->get();
     }

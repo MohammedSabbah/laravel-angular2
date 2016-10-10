@@ -47,6 +47,6 @@ export class ThumbnailComponent {
      * 
      */
     isDisabled(status) {
-        return status == 'online' ? true : false;
+        return status == 'available' ? true : false;
     }
 }

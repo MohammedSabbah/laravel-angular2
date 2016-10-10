@@ -52,7 +52,7 @@ class EscortsRepository
 
         $output = $escorts->orderByRaw('RAND()')
                           ->get();
-        
+
         $output = $this->_setAvailability($output);
 
         return $output;
@@ -60,10 +60,10 @@ class EscortsRepository
 
     /**
      * Retrieves the list of profiles in a specific subcategory
-     * 
+     *
      * @param  integer $sc_id ID of the subcategory to display
      */
-    public function getBySubcategory($sc_id = 1) 
+    public function getBySubcategory($sc_id = 1)
     {
         $escorts = $this->escorts->select('esc_id', 'esc_title', 'esc_available', 'esc_img', 'esc_age')
                                  ->where('esc_status', $sc_id)
@@ -83,7 +83,7 @@ class EscortsRepository
         return $this->escorts->where('esc_id', $esc_id)->first();
     }
 
-    /** 
+    /**
      * We are using CSS classes in our angular application to show if a profile is online or if it's not available
      * so what we have to do is to change the value of this object property because if the profile is
      * online we are going to use 'online' and if it's not available we will write 'dating'
@@ -92,10 +92,10 @@ class EscortsRepository
     private function _setAvailability($escorts) {
         foreach($escorts as $key => $escort) {
             if($escort->esc_available == 'Yes') {
-                $escorts[$key]->esc_available = 'online';
+                $escorts[$key]->esc_available = 'available';
             }
             else {
-                $escorts[$key]->esc_available = 'offline';
+                $escorts[$key]->esc_available = 'unavailable';
             }
         }
 
