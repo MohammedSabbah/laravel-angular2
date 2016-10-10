@@ -9,18 +9,16 @@ class PagesRepository
 {
     private $pages;
     private $settingsRepository;
-    private $hiddenPages; // avoid displaying these pages
 
     public function __construct(Pages $pages, SettingsRepository $settingsRepository) {
         $this->pages = $pages;
         $this->settingsRepository = $settingsRepository;
-        $this->hiddenPages = [86, 76, 88];
     }
 
     /**
      * Gets all page titles (useful to display the list of pages)
      */
-    public function getTitles() 
+    public function getTitles()
     {
         return $this->pages->select('page_id', 'page_title', 'page_url')
                            ->where('page_active', 1)
@@ -43,7 +41,7 @@ class PagesRepository
 
         // we need to replace all the constants like [shortcode], [price], etc.
         $page->page_text = $this->settingsRepository->parseSettings($page->page_text);
-        
+
         return $page;
     }
 }
