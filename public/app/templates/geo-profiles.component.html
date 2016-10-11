@@ -17,7 +17,7 @@
 <h1 *ngIf="!geoData?.city">Profiles near you:</h1>
 
 <div class="thumbnail side-corner-tag" *ngFor="let randomId of randomIds">
-    <span><p class="online-tag">Online</p></span>
+    <span><p class="available-tag">Online</p></span>
     
     <a [routerLink]="['/geoprofile', randomId]">
         <img class="img-responsive" src="/img/geolocate/resized/{{ randomId }}.jpg" alt="" style="max-width:320px;max-height:250px">
