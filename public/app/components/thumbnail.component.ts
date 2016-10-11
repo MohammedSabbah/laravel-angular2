@@ -47,6 +47,7 @@ export class ThumbnailComponent {
      * 
      */
     isDisabled(status) {
+        console.log(status);
         return status == 'available' ? true : false;
     }
 }
